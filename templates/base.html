@@ -1,0 +1,42 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Basic Page Needs –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<meta charset="utf-8">
+  	<title>{% block title %} Bullet Journal Online {% endblock title %}</title>
+  	<meta name="description" content="">
+  	<meta name="author" content="rbonick">
+
+	<!-- Mobile Specific Metas –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  	<!-- FONT –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    {% block font %}
+  	    <link href='//fonts.googleapis.com/css?family=Raleway:400,300,600' rel='stylesheet' type='text/css'>
+    {% endblock font %}
+
+  	<!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    {% block css %}
+        <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+    {% endblock css %}
+
+  	<!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    {% block favicon %}
+  	    <link rel="icon" type="image/png" href="images/favicon.png" />
+    {% endblock favicon %}
+</head>
+<body>
+	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<div class="container">
+        {% block content %}
+            <div class="row">
+				<div class="twelve columns"><h1>Welcome to Bullet Journal Online</h1></div>
+            </div>
+        {% endblock content %}
+	</div>
+    <!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>

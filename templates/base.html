@@ -19,8 +19,12 @@
 
   	<!-- CSS –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     {% block css %}
+        <link rel="stylesheet" href="{% static 'css/glyphicons.css' %}">
+
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     {% endblock css %}
 
   	<!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -29,14 +33,26 @@
     {% endblock favicon %}
 </head>
 <body>
+	{% block body %}
 	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  	<div class="container">
-        {% block content %}
-            <div class="row">
-				<div class="twelve columns"><h1>Welcome to Bullet Journal Online</h1></div>
+  	<div class="container full-height content">
+    	{% block navbar %}
+            <div class="navbar four columns">
+            	<h1 class="text-right"><a href="{% url "home" %}">Home</a></h1>
+           	 	<h1 class="text-right"><a href="{% url "entries" %}">Entries</a></h1>
+				{# Archive #}
             </div>
+		{% endblock navbar %}
+
+        {% block content %}
+    		<div class="eight columns">
+				<div class="row">
+					<div class="twelve columns"><h1 class="text-center">Welcome to Bullet Journal Online</h1></div>
+				</div>
+        	</div>
         {% endblock content %}
 	</div>
     <!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	{% endblock body %}
 </body>
 </html>

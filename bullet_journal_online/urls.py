@@ -15,4 +15,7 @@ urlpatterns = patterns('',
 
     # Home page
     url(r'^$', home, name="home"),
+
+    # Entries
+    url(r'^entry/', include('entries.urls')),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

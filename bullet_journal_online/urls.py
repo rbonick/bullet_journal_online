@@ -3,7 +3,7 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
-from bullet_journal_online.views import home
+from bullet_journal_online.views import index
 
 urlpatterns = patterns('',
     # Examples:
@@ -13,8 +13,8 @@ urlpatterns = patterns('',
     # Admin page
     url(r'^admin/', include(admin.site.urls)),
 
-    # Home page
-    url(r'^$', home, name="home"),
+    # Index page
+    url(r'^$', index, name="index"),
 
     # Entries
     url(r'^entry/', include('entries.urls')),

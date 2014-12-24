@@ -35,10 +35,9 @@
 <body>
 	{% block body %}
 	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  	<div class="container full-height content">
+  	<div class="container content">
     	{% block navbar %}
             <div class="navbar four columns">
-            	<h1 class="text-right"><a href="{% url "home" %}">Home</a></h1>
            	 	<h1 class="text-right"><a href="{% url "entries" %}">{{ current_date | date:"F Y" }}</a></h1>
 				{# Archive #}
             </div>

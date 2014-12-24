@@ -1,0 +1,33 @@
+<div class="{{ entry.get_class_name }} row">
+    <div class="glyphicons two columns">
+        &nbsp;
+        {% if entry.priority %}
+            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>
+        {% endif %}
+
+        {% if entry.explore %}
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+        {% endif %}
+
+        {% if entry.inspiration %}
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        {% endif %}
+
+    </div>
+
+    <div class="description ten columns">
+        <p>
+            <span class="glyphicon {{ entry.get_class_name }}"></span>
+            {% if entry.get_class_name == "Note" %}
+                &#x25CF;
+            {% elif entry.get_class_name == "Event" %}
+                &#x25CB;
+            {% elif entry.get_class_name == "Task" and entry.completed %}
+                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+            {% else %}
+                <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+            {% endif %}
+            {{ entry.description }}
+        </p>
+    </div>
+</div>

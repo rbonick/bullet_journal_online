@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="eight columns">
+    {% for day, day_entries in entries.items %}
+        {% if day_entries %}
+            <h3>{{ day | date:"l, F j Y" }}</h3>
+            {% for entry in day_entries %}
+                {% include "entry.html" %}
+            {% endfor %}
+        {% endif %}
+    {% endfor %}
+    </div>
+{% endblock content %}

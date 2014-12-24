@@ -6,10 +6,12 @@ from dateutil.utils import get_dates
 from entries.utils import get_all_entries
 
 
-def view_all_entries(request, month=date.today().month, year=date.today().year):
+def view_month_entries(request, month=date.today().month, year=date.today().year):
     user = get_object_or_404(User, username="rbonick")
 
     entries = {}
+    month = int(month)
+    year = int(year)
     for date in get_dates(month, year):
         entries[date] = get_all_entries(user, date)
     return render(request, 'entries.html', {

@@ -2,13 +2,22 @@
 
 {% block content %}
     <div class="eight columns">
-    {% for day, day_entries in entries.items %}
-        {% if day_entries %}
-            <h3 class="day">{{ day | date:"l, F j Y" }}</h3>
-            {% for entry in day_entries %}
-                {% include "entry.html" %}
+        <div class="row">
+            <div class="twelve columns">
+                <h4><a href="#">Add New Entry</a></h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="twelve columns">
+            {% for day, day_entries in entries.items %}
+                {% if day_entries %}
+                    <h3 class="day">{{ day | date:"l, F j Y" }}</h3>
+                    {% for entry in day_entries %}
+                        {% include "entry.html" %}
+                    {% endfor %}
+                {% endif %}
             {% endfor %}
-        {% endif %}
-    {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock content %}

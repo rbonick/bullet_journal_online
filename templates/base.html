@@ -38,8 +38,19 @@
   	<div class="container content">
     	{% block navbar %}
             <div class="navbar four columns">
-           	 	<h1 class="text-right"><a href="{% url "entries" %}">{{ current_date | date:"F Y" }}</a></h1>
-				{# Archive #}
+            	<div class="row">
+                    <div class="text-right">
+                    	<h4>
+							{% if user %}
+								<a href="/#">Logout</a>
+							{% else %}
+								<a href="#">Log In / Register</a>
+							{% endif %}
+                        </h4>
+                    </div>
+                </div>
+           	 	<h1 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h1>
+                <h1 class="text-right"><a href="#">Archive</a></h1>
             </div>
 		{% endblock navbar %}
 

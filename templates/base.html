@@ -40,17 +40,18 @@
             <div class="navbar four columns">
             	<div class="row">
                     <div class="text-right">
-                    	<h4>
+                    	<h5>
 							{% if user.is_authenticated %}
 								<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
 							{% else %}
 								<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
 							{% endif %}
-                        </h4>
+                        </h5>
                     </div>
                 </div>
-           	 	<h1 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h1>
-                <h1 class="text-right"><a href="#">Archive</a></h1>
+            	<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
+           	 	<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
+                <h4 class="text-right"><a href="#">Archive</a></h4>
             </div>
 		{% endblock navbar %}
 

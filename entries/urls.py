@@ -6,5 +6,5 @@ from entries import views
 
 urlpatterns = patterns('',
     url(r'^(?P<year>\d+)/(?P<month>\d+)/$', views.view_month_entries, name="entries"),
-    url(r'^$', views.view_month_entries, name="home"),
+    url(r'^next-seven/$', views.view_next_seven_days_entries, name="home"),
 )

@@ -65,5 +65,14 @@
 	</div>
     <!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	{% endblock body %}
+
+	{% block scripts %}
+        <!-- JQuery -->
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+        <!-- Custom scripts -->
+        <script src="{% static 'entries/js/entries.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
+	{% endblock scripts %}
 </body>
 </html>

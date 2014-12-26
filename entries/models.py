@@ -20,6 +20,7 @@ class Entry(models.Model):
     def get_class_name(self):
         return self.__class__.__name__
 
+
 class Task(Entry):
     completed = models.BooleanField(default=False)
 

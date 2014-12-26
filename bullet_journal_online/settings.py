@@ -10,9 +10,11 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 import django.conf.global_settings as DEFAULT_SETTINGS
+from django.core.urlresolvers import reverse_lazy
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -40,6 +42,9 @@ INSTALLED_APPS = (
 
     # Handles entries into the journal
     "entries",
+
+    # Handles user management
+    "user_mgmt",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,3 +103,6 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+# Login redirect url
+LOGIN_REDIRECT_URL = reverse_lazy('home')

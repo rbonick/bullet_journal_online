@@ -22,4 +22,7 @@ urlpatterns = patterns('',
     url(r'^entry/', include('entries.urls')),
 
     # Archive
+
+    # User management
+    url(r'^user/', include('user_mgmt.urls')),
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+<div class="container content">
+    <div class="row">
+        <h2><a href="{% url 'index' %}">Bullet Journal Online</a></h2>
+    </div>
+
+    <div class="row">
+        <div class="six columns">
+
+            <div class="row">
+                <h2>Log in</h2>
+            </div>
+
+            <form action="{% url 'django.contrib.auth.views.login' %}" method="post" >
+                {% csrf_token %}
+                <div class="row">
+                    <div class="six columns">
+                        <label for="id_username">{{ form.username.label_tag | default:"Username:"}}</label>
+                        <input id="id_username" class="u-full-width" name="username" type="text" maxlength="254">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="six columns">
+                        <label for="id_password">{{ form.password.label_tag | default:"Password:" }}</label>
+                        <input id="id_password" class="u-full-width" name="password" type="password" autocomplete="off">
+                    </div>
+                </div>
+
+                {% if form.errors %}
+                        <p class="error">Your username and password didn't match. Please try again.</p>
+                {% endif %}
+
+                <input type="submit" class="button-primary" value="login" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+        </div>
+
+        <div class="six columns">
+
+            <div class="row">
+                <h2>Register</h2>
+            </div>
+
+            <form action="{% url 'register' %}" method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="six columns">
+                        <label for="id_username">Username:</label>
+                        <input id="id_username" class="u-full-width" name="username" type="text" maxlength="30">
+                    </div>
+                    <div class="six columns">
+                        {% if registration_form.username.errors %}
+                            {% for error in registration_form.username.errors %}
+                                <p class="error">{{ error }}</p>
+                            {% endfor %}
+                        {% else %}
+                            <span class="helptext">Required. 30 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="six columns">
+                        <label for="id_password1">Password:</label>
+                        <input id="id_password1" class="u-full-width" name="password1" type="password">
+                    </div>
+                    <div class="six columns">
+                        {% for error in registration_form.password2.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="six columns">
+                        <label for="id_password2">Password:</label>
+                        <input id="id_password2" class="u-full-width" name="password2" type="password">
+                    </div>
+                    <div class="six columns">
+                        <span class="helptext">Enter the same password as above, for verification.</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="six columns">
+                        <label for="id_email">Email address:</label>
+                        <input id="id_email" class="u-full-width" maxlength="75" name="email" type="email">
+                    </div>
+                    <div class="six columns">
+                        {% for error in registration_form.email.errors %}
+                            <p class="error">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <input type="submit" class="button-primary" value="Create account">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock body %}

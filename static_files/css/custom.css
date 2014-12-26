@@ -1,4 +1,17 @@
-/* Utilities */
+/********************/
+/****** Colors ******/
+/********************/
+/* Primary text: #222 */
+
+/* Link text: #1EAEDB */
+
+/* Primary buttons: #1EAEDB */
+
+/* Error messages: #E13566 */
+
+/***********************/
+/****** Utilities ******/
+/***********************/
 .text-center {
     text-align: center;
 }
@@ -10,8 +23,10 @@
 .full-height {
     /*height: 100%;*/
 }
+/*************************/
+/****** Custom CSS *******/
+/*************************/
 
-/* Custom CSS */
 html, body {
     /*height: 100%;*/
     /*min-width: 100%;*/
@@ -42,4 +57,13 @@ a {
 
 .day {
     text-decoration: underline;
+}
+
+.error {
+    color: #E13566;
+}
+
+a.no-decoration {
+    text-decoration: none;
+    color: inherit;
 }

@@ -36,8 +36,6 @@ class EntryCreationForm(forms.Form):
             elif self.cleaned_data['type'] == EVENT:
                 model = Event()
 
-            print(type(model))
-
             model.date = self.cleaned_data['date']
             model.description = self.cleaned_data['entry']
             model.author = user

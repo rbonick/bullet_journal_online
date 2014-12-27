@@ -5,7 +5,7 @@ var main = function(){
     $("#add-entry-link").click(toggleEntryForm);
     $("#cancel-entry-form").click(toggleEntryForm);
 
-    $(".glyphicon-unchecked").click(checkTodoOff);
+    $(".todo-icon").click(toggleTodo);
 };
 
 $(document).ready(main);

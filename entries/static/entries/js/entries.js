@@ -33,8 +33,23 @@ function showNoteBooleans(){
     });
 }
 
-function checkTodoOff(){
+function toggleTodo(){
+    var todoIcon = $(this);
+    $.ajax({
+        url: "/entry/toggle-todo/" + todoIcon.attr('id'),
+        success: function(){
+            toggleTodoCheck(todoIcon);
+        }
+    });
     // Needs an ajax call to actually mark as completed in database
-    $(this).removeClass("glyphicon-unchecked");
-    $(this).addClass("glyphicon-check");
+}
+
+function toggleTodoCheck(todoIcon){
+    if(todoIcon.hasClass("glyphicon-check")){
+        todoIcon.addClass("glyphicon-unchecked");
+        todoIcon.removeClass("glyphicon-check");
+    } else if(todoIcon.hasClass("glyphicon-unchecked")){
+        todoIcon.removeClass("glyphicon-unchecked");
+        todoIcon.addClass("glyphicon-check");
+    }
 }

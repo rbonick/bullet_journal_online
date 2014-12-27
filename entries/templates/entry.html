@@ -23,9 +23,9 @@
             {% elif entry.get_class_name == "Event" %}
                 &#x25CB;
             {% elif entry.get_class_name == "Task" and entry.completed %}
-                <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+                <span id="{{ entry.id }}" class="glyphicon todo-icon glyphicon-check" aria-hidden="true"></span>
             {% else %}
-                <span class="glyphicon glyphicon-unchecked" aria-hidden="true"></span>
+                <span id="{{ entry.id }}" class="glyphicon todo-icon glyphicon-unchecked" aria-hidden="true"></span>
             {% endif %}
             {{ entry.description }}
         </p>

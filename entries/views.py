@@ -4,9 +4,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from dateutil.utils import get_dates, get_next_seven_days
 from entries.forms import EntryCreationForm
+from entries.models import Task
 
 from entries.utils import get_all_entries
 
@@ -62,3 +63,12 @@ def create_entry(request):
     else:
         # If somehow gets a GET request, just redirect to the homepage
         return HttpResponseRedirect(reverse("home"))
+
+
+def toggle_todo(request, todo_id):
+    task = get_object_or_404(klass=Task, pk=todo_id)
+
+    task.completed = not task.completed
+    task.save()
+
+    return HttpResponse("Successfully updated {0}".format(task.description))

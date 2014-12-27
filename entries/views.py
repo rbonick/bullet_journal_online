@@ -1,4 +1,5 @@
 from datetime import date
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -47,8 +48,9 @@ def create_entry(request):
         if form.is_valid():
             form.save(request.user)
 
+            messages.success(request, "Entry successfully added.")
+
             # Return user to the page they were on
-            print("Next:", request.POST['next'])
             return HttpResponseRedirect(request.POST['next'])
         else:
             # This is a cheap hack, figure out a better solution

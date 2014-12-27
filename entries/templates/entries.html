@@ -50,6 +50,17 @@
                 <a href="javascript:void(0)" id="cancel-entry-form">Cancel</a>
             </div>
         </div>
+
+        <div class="row">
+            {% if messages %}
+                <div class="messages row">
+                    {% for message in messages %}
+                        <span class="{% if message.tags %}{{ message.tags }}{% endif %}">{{ message }}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
         <div class="row">
             <div class="twelve columns">
             {% for day, day_entries in entries %}

@@ -14,7 +14,7 @@ from entries.utils import get_all_entries
 
 @login_required
 def view_month_entries(request, month=date.today().month, year=date.today().year):
-    user = get_object_or_404(User, )
+    user = request.user
 
     entries = {}
     month = int(month)
@@ -30,7 +30,7 @@ def view_month_entries(request, month=date.today().month, year=date.today().year
 
 @login_required
 def view_next_seven_days_entries(request):
-    user = get_object_or_404(User, username="rbonick")
+    user = request.user
 
     entries = {}
     for day in get_next_seven_days():
@@ -54,7 +54,7 @@ def create_entry(request):
             # Return user to the page they were on
             return HttpResponseRedirect(request.POST['next'])
         else:
-            # This is a cheap hack, figure out a better solution
+            # Keeps user on the same page if the form broke
             return render(request, 'entries.html', {
                 "form": form,
                 "next": request.POST['next'],

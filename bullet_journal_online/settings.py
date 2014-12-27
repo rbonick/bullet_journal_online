@@ -106,6 +106,9 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
 
+# Login url
+LOGIN_URL = reverse_lazy('django.contrib.auth.views.login')
+
 # Login redirect url
 LOGIN_REDIRECT_URL = reverse_lazy('home')
 

@@ -61,7 +61,9 @@ ROOT_URLCONF = 'bullet_journal_online.urls'
 
 WSGI_APPLICATION = 'bullet_journal_online.wsgi.application'
 
-TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + ("bullet_journal_online.context_processors.current_date_processor",)
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS \
+                              + ("bullet_journal_online.context_processors.current_date_processor",) \
+                              + ('django.core.context_processors.request',)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

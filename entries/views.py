@@ -18,7 +18,7 @@ def view_month_entries(request, month=date.today().month, year=date.today().year
     for day in get_dates(month, year):
         entries[day] = get_all_entries(user, day)
     return render(request, 'entries.html', {
-        "entries": entries,
+        "entries": sorted(entries.items()),
         "current_date": date.today(),
     })
 
@@ -29,8 +29,9 @@ def view_next_seven_days_entries(request):
     entries = {}
     for day in get_next_seven_days():
         entries[day] = get_all_entries(user, day)
+    print(sorted(entries.items()))
     return render(request, 'entries.html', {
-        "entries": entries,
+        "entries": sorted(entries.items()),
     })
 
 
@@ -41,13 +42,11 @@ def create_entry(request):
             form.save(request.user)
 
             # Return user to the page they were on
-            # return HttpResponseRedirect(request.POST['next'])
-            return HttpResponseRedirect(reverse("home"))
+            print("Next:", request.POST['next'])
+            return HttpResponseRedirect(request.POST['next'])
         else:
-            return render(request, 'form.html', {
+            # This is a cheap hack, figure out a better solution
+            return render(request, 'entries.html', {
                 "form": form,
+                "next": request.POST['next'],
             })
-
-    return render(request, 'form.html', {
-        "form": EntryCreationForm(),
-    })

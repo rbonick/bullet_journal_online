@@ -7,13 +7,52 @@
                 <h4><a href="javascript:void(0)" id="add-entry-link">Add New Entry</a></h4>
             </div>
             <div id="entry-form" class="twelve columns">
-                <p>This is an entry</p>
+                <form action="{% url 'create_entry' %}" method="post">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="two columns">
+                            <label for="id_type">Type:</label>
+                            <select id="id_type" name="type" class="{% if form.type.errors %}error-input{% endif %}">
+                                <option value="" {% if not form.type.value %}selected="selected"{% endif %}></option>
+                                <option value="task" {% if form.type.value == "task" %}selected="selected"{% endif %}>Task</option>
+                                <option value="note" {% if form.type.value == "note" %}selected="selected"{% endif %}>Note</option>
+                                <option value="event" {% if form.type.value == "event" %}selected="selected"{% endif %}>Event</option>
+                            </select>
+                        </div>
+                        <div class="ten columns">
+                            <label for="id_entry">Entry:</label>
+                            <input id="id_entry" name="entry" class="u-full-width {% if form.entry.errors %}error-input{% endif %}" type="text" value="{{ form.entry.value }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="four columns">
+                            <label for="id_date">Date:</label>
+                            <input id="id_date" name="date" class="u-full-width {% if form.date.errors %}error-input{% endif %}" type="text" value="{{ form.date.value }}">
+                        </div>
+                        <div class="two columns offset-by-two">
+                            <label for="id_priority">Priority:</label>
+                            <input id="id_priority" name="priority" type="checkbox" value="{{ form.priority.value }}">
+                        </div>
+                        <div class="two columns">
+                            <label for="id_explore">Explore:</label>
+                            <input id="id_explore" name="explore" type="checkbox" value="{{ form.explore.value }}">
+                        </div>
+                        <div class="two columns">
+                            <label for="id_inspiration">Inspiration:</label>
+                            <input id="id_inspiration" name="inspiration" type="checkbox" value="{{ form.inspiration.value }}">
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="next" value="{{ next | default:request.get_full_path }}" />
+                    <input type="submit" value="Submit">
+                </form>
                 <a href="javascript:void(0)" id="cancel-entry-form">Cancel</a>
             </div>
         </div>
         <div class="row">
             <div class="twelve columns">
-            {% for day, day_entries in entries.items %}
+            {% for day, day_entries in entries %}
                 {% if day_entries %}
                     <h3 class="day">{{ day | date:"l, F j Y" }}</h3>
                     {% for entry in day_entries %}

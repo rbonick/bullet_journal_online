@@ -32,3 +32,9 @@ function showNoteBooleans(){
         }
     });
 }
+
+function checkTodoOff(){
+    // Needs an ajax call to actually mark as completed in database
+    $(this).removeClass("glyphicon-unchecked");
+    $(this).addClass("glyphicon-check");
+}

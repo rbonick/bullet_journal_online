@@ -1,5 +1,5 @@
 var main = function(){
-    $("#entry-form").hide();
+    checkEntryForm();
 
     $("#add-entry-link").click(toggleEntryForm);
     $("#cancel-entry-form").click(toggleEntryForm);

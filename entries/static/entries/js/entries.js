@@ -15,3 +15,20 @@ function toggleEntryForm(){
     $("#add-entry").toggle();
     $("#entry-form").toggle();
 }
+
+function showNoteBooleans(){
+    $('.explore').hide();
+    $('.inspiration').hide();
+
+    var type_select = $('#id_type');
+    type_select.change(function () {
+        if ($(this).val() == 'note') {
+            $('.explore').show();
+            $('.inspiration').show();
+        }
+        else {
+            $('.explore').hide();
+            $('.inspiration').hide();
+        }
+    });
+}

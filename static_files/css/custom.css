@@ -38,6 +38,10 @@ a {
     text-decoration: none;
 }
 
+input {
+    margin-right: 0.5rem;
+}
+
 .navbar {
     /*min-height: 100%;*/
     padding-right: 30px;
@@ -79,4 +83,16 @@ a {
     border-radius: 4px;
     padding: 0.5rem 1rem;
 
+}
+
+#entry-form {
+    border: 1px solid #D1D1D1;
+    border-radius: 20px;
+    display: block;
+    padding: 10px;
+    margin-bottom: 2.5rem;
+}
+
+#entry-form form {
+    margin-bottom: 0;
 }

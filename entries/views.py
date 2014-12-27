@@ -1,4 +1,5 @@
 from datetime import date
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
@@ -9,32 +10,37 @@ from entries.forms import EntryCreationForm
 from entries.utils import get_all_entries
 
 
+@login_required
 def view_month_entries(request, month=date.today().month, year=date.today().year):
-    user = get_object_or_404(User, username="rbonick")
+    user = get_object_or_404(User, )
 
     entries = {}
     month = int(month)
     year = int(year)
     for day in get_dates(month, year):
         entries[day] = get_all_entries(user, day)
+    entries = sorted(entries.items())
+    request.session['entries'] = entries
     return render(request, 'entries.html', {
-        "entries": sorted(entries.items()),
-        "current_date": date.today(),
+        "entries": entries,
     })
 
 
+@login_required
 def view_next_seven_days_entries(request):
     user = get_object_or_404(User, username="rbonick")
 
     entries = {}
     for day in get_next_seven_days():
         entries[day] = get_all_entries(user, day)
-    print(sorted(entries.items()))
+    entries = sorted(entries.items())
+    request.session['entries'] = entries
     return render(request, 'entries.html', {
-        "entries": sorted(entries.items()),
+        "entries": entries,
     })
 
 
+@login_required
 def create_entry(request):
     if request.method == 'POST':
         form = EntryCreationForm(request.POST)
@@ -49,4 +55,8 @@ def create_entry(request):
             return render(request, 'entries.html', {
                 "form": form,
                 "next": request.POST['next'],
+                "entries": request.session.get('entries'),
             })
+    else:
+        # If somehow gets a GET request, just redirect to the homepage
+        return HttpResponseRedirect(reverse("home"))

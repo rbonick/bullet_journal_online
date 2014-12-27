@@ -108,3 +108,6 @@ TEMPLATE_DIRS = (
 
 # Login redirect url
 LOGIN_REDIRECT_URL = reverse_lazy('home')
+
+# Session serializer (set to Pickle to prevent issues JSONifying Date objects)
+SESSION_SERIALIZER = "django.contrib.sessions.serializers.PickleSerializer"

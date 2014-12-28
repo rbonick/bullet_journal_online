@@ -35,3 +35,25 @@ def get_next_seven_days(day=date.today()):
     for day_increment in range(0, 7):
         dates.append(day + timedelta(days=day_increment))
     return dates
+
+
+def get_months_until_today(start_month, start_year):
+    """
+    Returns a list of tuples for all months/years beginning at the given month and ending at the current month
+
+    :param start_month: The month to begin at
+    :param start_year: The year to begin at
+    :return: A list of tuples in the format (month, year) from the given month/year to the current month/year
+    """
+    if start_month > 12 or start_month < 1 or start_year < 1900 or start_year > date.today().year:
+        raise ValueError
+
+    months = []
+    for year in range(start_year, date.today().year + 1):
+        for month in range(start_month, 13):
+            # Break case
+            if (year == date.today().year) and (month == date.today().month):
+                months.append((month, year))
+                return months
+            months.append((month, year))
+        start_month = 1

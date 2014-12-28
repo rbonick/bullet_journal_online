@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
 
         <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     {% endblock css %}
 
   	<!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -37,21 +38,37 @@
 	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   	<div class="container content">
     	{% block navbar %}
-            <div class="navbar four columns">
-            	<div class="row">
-                    <div class="text-right">
-                    	<h5>
-							{% if user.is_authenticated %}
-								<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
-							{% else %}
-								<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
-							{% endif %}
-                        </h5>
-                    </div>
+            <div id="autocollapse" class="navbar four columns">
+
+				<div class="navbar-header row">
+                    <div class="navbar-brand">Bullet Journal Online</div>
+					<a href="javascript:void(0)" id="navbar-toggle" class="u-pull-right">
+                        <img src="{% static 'img/menu-toggle.png' %}">
+					</a>
+				</div>
+
+            	<div class="navbar-body">
+					<div class="row">
+						<div class="text-right">
+							<h5>
+								{% if user.is_authenticated %}
+									<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
+								{% else %}
+									<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
+								{% endif %}
+							</h5>
+						</div>
+					</div>
+                	<div class="row">
+						<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
+					</div>
+                	<div class="row">
+						<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
+					</div>
+                	<div class="row">
+						<h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
+					</div>
                 </div>
-            	<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
-           	 	<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
-                <h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
             </div>
 		{% endblock navbar %}
 
@@ -71,8 +88,8 @@
 		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 
         <!-- Custom scripts -->
-        <script src="{% static 'entries/js/entries.js' %}"></script>
         <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/navbar.js' %}"></script>
 	{% endblock scripts %}
 </body>
 </html>

@@ -1,0 +1,38 @@
+.navbar {
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+.navbar-header {
+    border-bottom: 1px solid #D1D1D1;
+    display:none;
+    padding: 1rem 2rem 1rem 1rem;
+}
+
+#navbar-toggle {
+    height: 30px;
+}
+
+.navbar-brand {
+    float: left;
+    margin-top: 4px;
+}
+
+.navbar-body {
+    padding-top: 2rem;
+    padding-right: 2rem;
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+    .navbar {
+        padding-right: 30px;
+        border: none;
+    }
+
+    .navbar-body {
+        padding-top: 0;
+        padding-right: 0;
+    }
+}

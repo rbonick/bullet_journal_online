@@ -38,17 +38,19 @@
                             <label for="id_date">Date:</label>
                             <input id="id_date" name="date" class="u-full-width {% if form.date.errors %}error-input{% endif %}" type="text" value="{{ form.date.value }}">
                         </div>
-                        <div class="two columns offset-by-one priority">
-                            <label for="id_priority">Priority:</label>
-                            <input id="id_priority" name="priority" type="checkbox" value="true">
-                        </div>
-                        <div class="two columns explore offset-by-one">
-                            <label for="id_explore">Explore:</label>
-                            <input id="id_explore" name="explore" type="checkbox" value="true">
-                        </div>
-                        <div class="two columns inspiration offset-by-one">
-                            <label for="id_inspiration">Inspiration:</label>
-                            <input id="id_inspiration" name="inspiration" type="checkbox" value="true">
+                        <div class="eight columns">
+                            <div class="checkbox">
+                                <label for="id_priority">Priority:</label>
+                                <input id="id_priority" name="priority" type="checkbox" value="true">
+                            </div>
+                            <div class="checkbox">
+                                <label for="id_explore">Explore:</label>
+                                <input id="id_explore" name="explore" type="checkbox" value="true">
+                            </div>
+                            <div class="checkbox">
+                                <label for="id_inspiration">Inspiration:</label>
+                                <input id="id_inspiration" name="inspiration" type="checkbox" value="true">
+                            </div>
                         </div>
                     </div>
 
@@ -86,3 +88,8 @@
         </div>
     </div>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="{% static 'entries/js/entries.js' %}"></script>
+    {{ block.super }}
+{% endblock scripts %}

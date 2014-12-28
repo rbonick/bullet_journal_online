@@ -1,3 +1,13 @@
+function entries_init() {
+    checkEntryForm();
+    showNoteBooleans();
+
+    $("#add-entry-link").click(toggleEntryForm);
+    $("#cancel-entry-form").click(toggleEntryForm);
+
+    $(".todo-icon").click(toggleTodo);
+}
+
 function checkEntryForm() {
     // See if the entry form has an error on it (meaning it wasn't successfully added
     if($(".error-input").length){

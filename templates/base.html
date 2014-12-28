@@ -51,7 +51,7 @@
                 </div>
             	<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
            	 	<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
-                <h4 class="text-right"><a href="#">Archive</a></h4>
+                <h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
             </div>
 		{% endblock navbar %}
 

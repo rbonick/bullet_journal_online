@@ -1,11 +1,10 @@
 from datetime import date
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
-from dateutil.utils import get_dates, get_next_seven_days
+from dateutil.utils import get_dates, get_next_seven_days, get_months_until_today
 from entries.forms import EntryCreationForm
 from entries.models import Task
 
@@ -72,3 +71,16 @@ def toggle_todo(request, todo_id):
     task.save()
 
     return HttpResponse("Successfully updated {0}".format(task.description))
+
+
+def view_archive(request):
+    months_years = get_months_until_today(request.user.date_joined.month, request.user.date_joined.year)
+
+    months = []
+    for month_year in months_years:
+        month = date(month_year[1], month_year[0], 1)
+        months.append(month)
+
+    return render(request, 'archive.html', {
+        "months": months,
+    })

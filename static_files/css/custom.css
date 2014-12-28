@@ -21,19 +21,9 @@
 .text-right {
     text-align: right;
 }
-
-.full-height {
-    /*height: 100%;*/
-}
 /*************************/
 /****** Custom CSS *******/
 /*************************/
-
-html, body {
-    /*height: 100%;*/
-    /*min-width: 100%;*/
-}
-
 a {
     text-decoration: none;
 }
@@ -43,14 +33,10 @@ input {
 }
 
 .navbar {
-    /*min-height: 100%;*/
     padding-right: 30px;
-    /*background-color: #F5F5F5;*/
 }
 
 .content {
-    /*min-height: 100%;*/
-    /*background-color: #FAFAFA;*/
     padding-top: 5rem;
 }
 
@@ -59,10 +45,6 @@ input {
     padding-left: 5rem;
     padding-right: 5rem;
     text-align: center;
-}
-
-.day {
-    text-decoration: underline;
 }
 
 .error {
@@ -83,16 +65,4 @@ input {
     border-radius: 4px;
     padding: 0.5rem 1rem;
 
-}
-
-#entry-form {
-    border: 1px solid #D1D1D1;
-    border-radius: 20px;
-    display: block;
-    padding: 10px;
-    margin-bottom: 2.5rem;
-}
-
-#entry-form form {
-    margin-bottom: 0;
 }

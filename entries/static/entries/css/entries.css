@@ -1,0 +1,15 @@
+.day {
+    text-decoration: underline;
+}
+
+#entry-form {
+    border: 1px solid #D1D1D1;
+    border-radius: 20px;
+    display: block;
+    padding: 10px;
+    margin-bottom: 2.5rem;
+}
+
+#entry-form form {
+    margin-bottom: 0;
+}

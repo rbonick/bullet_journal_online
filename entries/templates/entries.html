@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
+{% block css %}
+    {{ block.super }}
+
+    <link rel="stylesheet" href="{% static 'entries/css/entries.css' %}">
+{% endblock css %}
+
 {% block content %}
     <div class="eight columns">
         <div class="row">

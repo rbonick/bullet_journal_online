@@ -2,14 +2,6 @@
     text-decoration: underline;
 }
 
-.button,
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"]{
-    width: 100%;
-}
-
 select {
     width: 100%;
 }
@@ -43,15 +35,6 @@ select {
 @media (min-width: 400px) {
     /* Resets the type select box */
     select {
-        width: auto;
-    }
-
-    /* Resets the button size */
-    .button,
-    button,
-    input[type="submit"],
-    input[type="reset"],
-    input[type="button"] {
         width: auto;
     }
 

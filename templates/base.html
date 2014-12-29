@@ -37,48 +37,56 @@
 	{% block body %}
 	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   	<div class="container content">
-    	{% block navbar %}
-            <div id="autocollapse" class="navbar four columns">
+    	{% block header %}
+            <div class="row brand">
+				<h1>Bullet Journal Online</h1>
+            </div>
+		{% endblock header %}
 
-				<div class="navbar-header row">
-                    <div class="navbar-brand">Bullet Journal Online</div>
-					<a href="javascript:void(0)" id="navbar-toggle" class="u-pull-right">
-                        <img src="{% static 'img/menu-toggle.png' %}">
-					</a>
-				</div>
+    	<div class="row">
+			{% block navbar %}
+				<div id="autocollapse" class="navbar four columns">
 
-            	<div class="navbar-body">
-					<div class="row">
-						<div class="text-right">
-							<h5>
-								{% if user.is_authenticated %}
-									<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
-								{% else %}
-									<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
-								{% endif %}
-							</h5>
+					<div class="navbar-header row">
+						<div class="navbar-brand">Bullet Journal Online</div>
+						<a href="javascript:void(0)" id="navbar-toggle" class="u-pull-right">
+							<img src="{% static 'img/menu-toggle.png' %}">
+						</a>
+					</div>
+
+					<div class="navbar-body">
+						<div class="row">
+							<div class="text-right">
+								<h5>
+									{% if user.is_authenticated %}
+										<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
+									{% else %}
+										<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
+									{% endif %}
+								</h5>
+							</div>
+						</div>
+						<div class="row">
+							<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
+						</div>
+						<div class="row">
+							<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
+						</div>
+						<div class="row">
+							<h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
 						</div>
 					</div>
-                	<div class="row">
-						<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
-					</div>
-                	<div class="row">
-						<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
-					</div>
-                	<div class="row">
-						<h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
-					</div>
-                </div>
-            </div>
-		{% endblock navbar %}
-
-        {% block content %}
-    		<div class="eight columns">
-				<div class="row">
-					<div class="twelve columns"><h1 class="text-center">Welcome to Bullet Journal Online</h1></div>
 				</div>
-        	</div>
-        {% endblock content %}
+			{% endblock navbar %}
+
+			{% block content %}
+				<div class="eight columns">
+					<div class="row">
+						<div class="twelve columns"><h1 class="text-center">Welcome to Bullet Journal Online</h1></div>
+					</div>
+				</div>
+			{% endblock content %}
+    	</div>
 	</div>
     <!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	{% endblock body %}

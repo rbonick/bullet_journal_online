@@ -32,10 +32,22 @@ input {
     margin-right: 0.5rem;
 }
 
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"]{
+    width: 100%;
+}
+
+.brand {
+    display: none;
+}
+
 .header {
-    padding-top: 15rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     text-align: center;
 }
 
@@ -61,7 +73,22 @@ input {
 
 /* For devices larger than 400px */
 @media (min-width: 400px) {
-    .content {
-        padding-top: 5rem;
+    /* Resets the button size */
+    .button,
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+        width: auto;
+    }
+
+    .brand {
+        display: block;
+    }
+
+    .header {
+        padding-top: 15rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
     }
 }

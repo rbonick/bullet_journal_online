@@ -31,6 +31,21 @@ select {
     box-sizing: border-box;
 }
 
+/* Task checkboxes */
+span.todo-icon {
+    content: "";
+    float: left;
+    height: 24px;
+    width: 24px;
+    margin-right: 0.5rem;
+}
+span.todo-icon.checked {
+   background: url('/static/img/todo-check-done.png') 0 0 no-repeat;
+}
+span.todo-icon.unchecked {
+   background: url('/static/img/todo-check.png') 0 0 no-repeat;
+}
+
 /* For devices larger than 400px */
 @media (min-width: 400px) {
     /* Resets the type select box */

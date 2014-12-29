@@ -55,11 +55,11 @@ function toggleTodo(){
 }
 
 function toggleTodoCheck(todoIcon){
-    if(todoIcon.hasClass("glyphicon-check")){
-        todoIcon.addClass("glyphicon-unchecked");
-        todoIcon.removeClass("glyphicon-check");
-    } else if(todoIcon.hasClass("glyphicon-unchecked")){
-        todoIcon.removeClass("glyphicon-unchecked");
-        todoIcon.addClass("glyphicon-check");
+    if(todoIcon.hasClass("checked")){
+        todoIcon.addClass("unchecked");
+        todoIcon.removeClass("checked");
+    } else if(todoIcon.hasClass("unchecked")){
+        todoIcon.removeClass("unchecked");
+        todoIcon.addClass("checked");
     }
 }

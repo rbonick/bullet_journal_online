@@ -46,8 +46,8 @@ span.todo-icon.unchecked {
    background: url('/static/img/todo-check.png') 0 0 no-repeat;
 }
 
-/* For devices larger than 400px */
-@media (min-width: 400px) {
+/* Larger than phablet */
+@media (min-width: 550px) {
     /* Resets the type select box */
     select {
         width: auto;

@@ -71,8 +71,8 @@ input[type="button"]{
 
 }
 
-/* For devices larger than 400px */
-@media (min-width: 400px) {
+/* Larger than phablet */
+@media (min-width: 550px) {
     /* Resets the button size */
     .button,
     button,

@@ -25,6 +25,16 @@
     border-bottom: 1px solid #D1D1D1;
 }
 
+.section {
+    border-bottom: 1px solid #D1D1D1;
+    margin-bottom: 2rem;
+}
+
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
 /* Larger than phablet */
 @media (min-width: 550px) {
     .navbar {

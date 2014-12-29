@@ -53,26 +53,31 @@
 					</div>
 
 					<div class="navbar-body">
-						<div class="row">
-							<div class="text-right">
-								<h5>
-									{% if user.is_authenticated %}
-										<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
-									{% else %}
-										<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
-									{% endif %}
-								</h5>
+                    	<div class="section">
+							<div class="row">
+								<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
 							</div>
-						</div>
-						<div class="row">
-							<h4 class="text-right"><a href="{% url 'home' %}">Next Seven Days</a></h4>
-						</div>
-						<div class="row">
-							<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
-						</div>
-						<div class="row">
-							<h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
-						</div>
+							<div class="row">
+								<h4 class="text-right"><a href="{% url "entries" current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
+							</div>
+							<div class="row">
+								<h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
+							</div>
+                        </div>
+
+                        <div class="section">
+							<div class="row">
+								<div class="text-right">
+									<h5>
+										{% if user.is_authenticated %}
+											<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
+										{% else %}
+											<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
+										{% endif %}
+									</h5>
+								</div>
+							</div>
+                        </div>
 					</div>
 				</div>
 			{% endblock navbar %}

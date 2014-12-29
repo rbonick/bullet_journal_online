@@ -1,6 +1,6 @@
 .navbar {
-    border: 1px solid #D1D1D1;
-    border-radius: 5px;
+    /*border: 1px solid #D1D1D1;*/
+    /*border-radius: 5px;*/
     margin-bottom: 2rem;
 }
 
@@ -22,6 +22,7 @@
 .navbar-body {
     padding-top: 2rem;
     padding-right: 2rem;
+    border-bottom: 1px solid #D1D1D1;
 }
 
 /* For devices larger than 400px */
@@ -34,5 +35,6 @@
     .navbar-body {
         padding-top: 0;
         padding-right: 0;
+        border-bottom: none;
     }
 }

@@ -32,10 +32,6 @@ input {
     margin-right: 0.5rem;
 }
 
-.content {
-    padding-top: 5rem;
-}
-
 .header {
     padding-top: 15rem;
     padding-left: 5rem;
@@ -61,4 +57,11 @@ input {
     border-radius: 4px;
     padding: 0.5rem 1rem;
 
+}
+
+/* For devices larger than 400px */
+@media (min-width: 400px) {
+    .content {
+        padding-top: 5rem;
+    }
 }

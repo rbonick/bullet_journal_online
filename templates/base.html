@@ -21,6 +21,9 @@
     {% block css %}
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
+
+        <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+        <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
     {% endblock css %}
 
   	<!-- Favicon –––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -29,14 +32,75 @@
     {% endblock favicon %}
 </head>
 <body>
+	{% block body %}
 	<!-- Primary Page Layout –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-  	<div class="container">
-        {% block content %}
-            <div class="row">
-				<div class="twelve columns"><h1>Welcome to Bullet Journal Online</h1></div>
+  	<div class="container content">
+    	{% block header %}
+            <div class="row brand">
+				<h1>Bullet Journal Online</h1>
             </div>
-        {% endblock content %}
+		{% endblock header %}
+
+    	<div class="row">
+			{% block navbar %}
+				<div id="autocollapse" class="navbar four columns">
+
+					<div class="navbar-header row">
+						<div class="navbar-brand">Bullet Journal Online</div>
+						<a href="javascript:void(0)" id="navbar-toggle" class="u-pull-right">
+							<img src="{% static 'img/menu-toggle.png' %}">
+						</a>
+					</div>
+
+					<div class="navbar-body">
+                    	<div class="section">
+							<div class="row">
+								<h4 class="text-right"><a href="{% url 'view_month' current_date.year current_date.month %}">{{ current_date | date:"F Y" }}</a></h4>
+							</div>
+							<div class="row">
+								<h4 class="text-right"><a href="{% url 'view_future' %}">All Upcoming</a></h4>
+							</div>
+							<div class="row">
+								<h4 class="text-right"><a href="{% url "view_archive" %}">Archive</a></h4>
+							</div>
+                        </div>
+
+                        <div class="section">
+							<div class="row">
+								<div class="text-right">
+									<h5>
+										{% if user.is_authenticated %}
+											<a href="{% url 'django.contrib.auth.views.logout' %}">Logout</a>
+										{% else %}
+											<a href="{% url 'django.contrib.auth.views.login' %}">Log In / Register</a>
+										{% endif %}
+									</h5>
+								</div>
+							</div>
+                        </div>
+					</div>
+				</div>
+			{% endblock navbar %}
+
+			{% block content %}
+				<div class="eight columns">
+					<div class="row">
+						<div class="twelve columns"><h1 class="text-center">Welcome to Bullet Journal Online</h1></div>
+					</div>
+				</div>
+			{% endblock content %}
+    	</div>
 	</div>
     <!-- End Document  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	{% endblock body %}
+
+	{% block scripts %}
+        <!-- JQuery -->
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+
+        <!-- Custom scripts -->
+        <script src="{% static 'js/custom.js' %}"></script>
+        <script src="{% static 'js/navbar.js' %}"></script>
+	{% endblock scripts %}
 </body>
 </html>

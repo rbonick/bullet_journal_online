@@ -8,10 +8,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
+import django.conf.global_settings as DEFAULT_SETTINGS
+from django.core.urlresolvers import reverse_lazy
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
@@ -36,6 +39,12 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Handles entries into the journal
+    "entries",
+
+    # Handles user management
+    "user_mgmt",
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,6 +61,9 @@ ROOT_URLCONF = 'bullet_journal_online.urls'
 
 WSGI_APPLICATION = 'bullet_journal_online.wsgi.application'
 
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS \
+                              + ("bullet_journal_online.context_processors.current_date_processor",) \
+                              + ('django.core.context_processors.request',)  # Enables access to request url (for ?next)
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -93,3 +105,13 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR,  'templates'),
 )
+
+### Logins ###
+# Login url
+LOGIN_URL = reverse_lazy('django.contrib.auth.views.login')
+# Login redirect url
+LOGIN_REDIRECT_URL = reverse_lazy('view_all')
+
+
+# Session serializer (set to Pickle to prevent issues JSONifying Date objects)
+SESSION_SERIALIZER = "django.contrib.sessions.serializers.PickleSerializer"

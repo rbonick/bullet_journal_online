@@ -1,0 +1,60 @@
+select {
+    width: 100%;
+}
+
+.day {
+    text-decoration: underline;
+}
+
+#cancel-entry-form {
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#entry-form {
+    border: 1px solid #D1D1D1;
+    border-radius: 20px;
+    display: block;
+    margin-bottom: 2.5rem;
+    padding: 10px;
+}
+
+#entry-form form {
+    margin-bottom: 0;
+}
+
+/* Used for the checkboxes */
+#entry-form div.checkbox {
+    box-sizing: border-box;
+    float: left;
+    width: 30.6666666667%;
+}
+
+/* Task checkboxes */
+span.todo-icon {
+    content: "";
+    float: left;
+    height: 24px;
+    margin-right: 0.5rem;
+    width: 24px;
+}
+span.todo-icon.checked {
+   background: url('/static/img/todo-check-done.png') 0 0 no-repeat;
+}
+span.todo-icon.unchecked {
+   background: url('/static/img/todo-check.png') 0 0 no-repeat;
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    /* Resets the type select box */
+    select {
+        width: auto;
+    }
+
+    /* Resets centering of the "cancel" button */
+    #cancel-entry-form {
+        display: inline;
+    }
+}

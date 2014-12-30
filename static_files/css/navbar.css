@@ -1,0 +1,50 @@
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.navbar-header {
+    border-bottom: 1px solid #D1D1D1;
+    display: none;
+    padding: 1rem 2rem 1rem 1rem;
+}
+
+.navbar-body {
+    border-bottom: 1px solid #D1D1D1;
+    padding-top: 2rem;
+    padding-right: 2rem;
+}
+
+.navbar-brand {
+    float: left;
+    margin-top: 4px;
+}
+
+.section {
+    border-bottom: 1px solid #D1D1D1;
+    margin-bottom: 2rem;
+}
+
+/* Needed so last child doesn't have extra border on bottom,
+   since there's already a border on the bottom of navbar */
+.section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+#navbar-toggle {
+    height: 30px;
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    .navbar {
+        border: none;
+        padding-right: 30px;
+    }
+
+    .navbar-body {
+        border-bottom: none;
+        padding-top: 0;
+        padding-right: 0;
+    }
+}

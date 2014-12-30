@@ -1,0 +1,91 @@
+/********************/
+/****** Colors ******/
+/********************/
+/* Primary text: #222 */
+
+/* Link text: #1EAEDB */
+
+/* Primary buttons: #1EAEDB */
+
+/* Error messages: #E13566 */
+
+/* Success messages: #14E8A6 */
+
+/***********************/
+/****** Utilities ******/
+/***********************/
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/*************************/
+/****** Custom CSS *******/
+/*************************/
+a {
+    text-decoration: none;
+}
+
+input {
+    margin-right: 0.5rem;
+}
+
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+    width: 100%;
+}
+
+.brand {
+    display: none;
+}
+
+.error {
+    color: #E13566;
+}
+
+.error-input {
+    border-color: #E13566 !important;
+}
+
+.header {
+    padding: 2rem 2rem 0;
+    text-align: center;
+}
+
+.messages {
+    margin: 2rem 0;
+}
+
+.success {
+    border: 1px solid #14E8A6;
+    border-radius: 4px;
+    color: #14E8A6;
+    padding: 0.5rem 1rem;
+
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+    /* Resets the button size */
+    .button,
+    button,
+    input[type="submit"],
+    input[type="reset"],
+    input[type="button"] {
+        width: auto;
+    }
+
+    .brand {
+        display: block;
+    }
+
+    .header {
+        padding: 15rem 5rem 0;
+    }
+}

@@ -1,3 +1,4 @@
+from collections import defaultdict
 from datetime import date
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -9,6 +10,25 @@ from entries.forms import EntryCreationForm
 from entries.models import Task
 
 from entries.utils import get_all_entries
+
+
+@login_required
+def view_all_entries(request, future_only=False):
+    entries = get_all_entries(request.user)
+
+    entry_dict = defaultdict(list)
+
+    for entry in entries:
+        if future_only and (entry.date < date.today()):
+            continue
+        entry_dict[entry.date].append(entry)
+
+    entries = sorted(entry_dict.items())
+    request.session['entries'] = entries
+    return render(request, 'entries.html', {
+        "entries": entries,
+    })
+
 
 
 @login_required

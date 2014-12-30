@@ -6,8 +6,10 @@ from entries import views
 
 urlpatterns = patterns('',
     # Web pages
-    url(r'^(?P<year>\d+)/(?P<month>\d+)/$', views.view_month_entries, name="entries"),
+    url(r'^all/$', views.view_all_entries, name="view_all"),
+    url(r'^future/$', views.view_all_entries, {"future_only": "True"}, name="view_future"),
     url(r'^next-seven/$', views.view_next_seven_days_entries, name="home"),
+    url(r'^(?P<year>\d+)/(?P<month>\d+)/$', views.view_month_entries, name="view_month"),
     url(r'^archive/$', views.view_archive, name="view_archive"),
 
     # Form urls

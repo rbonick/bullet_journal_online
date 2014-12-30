@@ -4,18 +4,18 @@
     <div class="glyphicons two columns">
         &nbsp;
         {% if entry.priority %}
-            <img src="{% static 'img/priority.png' %}">
-{#            <span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span>#}
+            <h5 class="inline">&#9734;</h5>
+{#            <img src="{% static 'img/priority.png' %}">#}
         {% endif %}
 
         {% if entry.explore %}
-            <img src="{% static 'img/explore.png' %}">
-{#            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>#}
+            <h5 class="inline">&#9737;</h5>
+{#            <img src="{% static 'img/explore.png' %}">#}
         {% endif %}
 
         {% if entry.inspiration %}
-            <img src="{% static 'img/inspiration.png' %}">
-{#            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>#}
+            <h5 class="inline">&#8252;</h5>
+{#            <img src="{% static 'img/inspiration.png' %}">#}
         {% endif %}
 
     </div>

@@ -6,6 +6,10 @@ select {
     text-decoration: underline;
 }
 
+.inline {
+    display: inline;
+}
+
 #cancel-entry-form {
     display: block;
     text-align: center;

@@ -1,6 +1,6 @@
 function entries_init() {
     checkEntryForm();
-    showNoteBooleans();
+    showNoteCheckboxes();
 
     $("#add-entry-link").click(toggleEntryForm);
     $("#cancel-entry-form").click(toggleEntryForm);
@@ -21,12 +21,11 @@ function checkEntryForm() {
 }
 
 function toggleEntryForm(){
-    console.log("Entry form toggled!");
     $("#add-entry").toggle();
     $("#entry-form").toggle();
 }
 
-function showNoteBooleans(){
+function showNoteCheckboxes(){
     $('.explore').hide();
     $('.inspiration').hide();
 
@@ -51,7 +50,6 @@ function toggleTodo(){
             toggleTodoCheck(todoIcon);
         }
     });
-    // Needs an ajax call to actually mark as completed in database
 }
 
 function toggleTodoCheck(todoIcon){

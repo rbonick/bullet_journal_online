@@ -1,7 +1,9 @@
+/* Handles the autocollapsing navbar on mobile devices*/
 function autocollapse() {
     var navbar = $('#autocollapse');
     var navbarHeader = $(".navbar-header");
     var navbarBody = $(".navbar-body");
+
     navbar.removeClass('collapsed');
     navbarHeader.hide();
 

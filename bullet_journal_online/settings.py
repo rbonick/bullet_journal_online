@@ -110,7 +110,7 @@ TEMPLATE_DIRS = (
 # Login url
 LOGIN_URL = reverse_lazy('django.contrib.auth.views.login')
 # Login redirect url
-LOGIN_REDIRECT_URL = reverse_lazy('home')
+LOGIN_REDIRECT_URL = reverse_lazy('view_all')
 
 
 # Session serializer (set to Pickle to prevent issues JSONifying Date objects)

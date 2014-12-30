@@ -1,4 +1,4 @@
-var main = function(){
+var main = function () {
     entries_init();
 };
 

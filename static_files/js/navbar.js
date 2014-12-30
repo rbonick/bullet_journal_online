@@ -7,7 +7,7 @@ function autocollapse() {
     navbar.removeClass('collapsed');
     navbarHeader.hide();
 
-    if(window.matchMedia('(max-width: 550px)').matches) {
+    if (window.matchMedia('(max-width: 550px)').matches) {
         navbar.addClass('collapsed');
         navbarHeader.show();
         navbarBody.hide();

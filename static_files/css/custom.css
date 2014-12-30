@@ -21,6 +21,7 @@
 .text-right {
     text-align: right;
 }
+
 /*************************/
 /****** Custom CSS *******/
 /*************************/
@@ -36,7 +37,7 @@ input {
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"]{
+input[type="button"] {
     width: 100%;
 }
 

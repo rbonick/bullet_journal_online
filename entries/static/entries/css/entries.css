@@ -1,23 +1,23 @@
-.day {
-    text-decoration: underline;
-}
-
 select {
     width: 100%;
 }
 
+.day {
+    text-decoration: underline;
+}
+
 #cancel-entry-form {
-    width: 100%;
-    text-align: center;
     display: block;
+    text-align: center;
+    width: 100%;
 }
 
 #entry-form {
     border: 1px solid #D1D1D1;
     border-radius: 20px;
     display: block;
-    padding: 10px;
     margin-bottom: 2.5rem;
+    padding: 10px;
 }
 
 #entry-form form {
@@ -26,9 +26,9 @@ select {
 
 /* Used for the checkboxes */
 #entry-form div.checkbox {
-    width: 30.6666666667%;
-    float: left;
     box-sizing: border-box;
+    float: left;
+    width: 30.6666666667%;
 }
 
 /* Task checkboxes */
@@ -36,8 +36,8 @@ span.todo-icon {
     content: "";
     float: left;
     height: 24px;
-    width: 24px;
     margin-right: 0.5rem;
+    width: 24px;
 }
 span.todo-icon.checked {
    background: url('/static/img/todo-check-done.png') 0 0 no-repeat;

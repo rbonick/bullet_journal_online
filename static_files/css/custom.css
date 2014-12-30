@@ -44,13 +44,6 @@ input[type="button"]{
     display: none;
 }
 
-.header {
-    padding-top: 2rem;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    text-align: center;
-}
-
 .error {
     color: #E13566;
 }
@@ -59,14 +52,19 @@ input[type="button"]{
     border-color: #E13566 !important;
 }
 
+.header {
+    padding: 2rem 2rem 0;
+    text-align: center;
+}
+
 .messages {
     margin: 2rem 0;
 }
 
 .success {
-    color: #14E8A6;
     border: 1px solid #14E8A6;
     border-radius: 4px;
+    color: #14E8A6;
     padding: 0.5rem 1rem;
 
 }
@@ -87,8 +85,6 @@ input[type="button"]{
     }
 
     .header {
-        padding-top: 15rem;
-        padding-left: 5rem;
-        padding-right: 5rem;
+        padding: 15rem 5rem 0;
     }
 }

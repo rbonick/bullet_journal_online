@@ -1,0 +1,1 @@
+web: gunicorn bullet_journal_online.wsgi --log-file -

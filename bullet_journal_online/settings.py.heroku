@@ -31,7 +31,7 @@ STATICFILES_DIRS = (
 SECRET_KEY = 'y8wvs#5f9o#u(6)m%6bx1zkpv+#lgk4x0v$#-8(eb*%oa(sa0d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 TEMPLATE_DEBUG = True
 
@@ -51,6 +51,9 @@ INSTALLED_APPS = (
 
     # Handles user management
     "user_mgmt",
+
+    # Launching for heroku
+    'gunicorn',
 )
 
 MIDDLEWARE_CLASSES = (
